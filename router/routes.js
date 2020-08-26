@@ -10,6 +10,7 @@ router.post('/register', userCreation.registerHandler);
 router.post('/login', loginAuthentication.loginAuthentication);
 router.get('/verifyuser', userAuthentication.verifyUser);
 router.get('/logout', userAuthentication.logout);
+router.post('/getbyid', productQuery.findById);
 router.post('/coldstorage', coldStorage.productEntry);
 router.post('/getitem', productQuery.getItem);
 router.post('/deleteitem', productQuery.deleteItem);

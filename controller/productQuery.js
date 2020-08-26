@@ -22,5 +22,16 @@ module.exports = {
             console.log(err)
             httpResponse(res, 500, false, 'Server Error', err)
         }
+    },
+    findById: async (req,res) => {
+        try {
+            const { id } = req.body
+            console.log(id)
+            const item = await Products.findById(id)
+            httpResponse(res, 200, true, 'Items has been sucessfully fetched', item)
+        } catch (err) {
+            console.log(err)
+            httpResponse(res, 500, false, 'Server Error', err)
+        }
     }
 }
