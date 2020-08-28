@@ -10,6 +10,7 @@ const job = cron.schedule('*/50 * * * *', async () => {
             const price = allProducts[i].price
             const name = allProducts[i].name
             const coldStorage = '.price_now'
+            const email = allProducts[i].email
             const id = allProducts[i].id
             const itemPrice = await dataScrape.getItemPrice(url, '.price_now', '#selected-image')
             const productPrice = itemPrice.formatedPrice
@@ -38,7 +39,7 @@ const job = cron.schedule('*/50 * * * *', async () => {
                 }
             }
  
-            await dataScrape.emailCondition(price, productPrice)
+            await dataScrape.emailCondition(price, productPrice, name, email, url)
 
         }
     } catch (err) {

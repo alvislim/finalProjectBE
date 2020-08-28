@@ -1,7 +1,6 @@
 const puppeteer = require('puppeteer');
 const $ = require('cheerio');
 const cron = require('node-cron');
-// const CronJob = require('cron').CronJob;
 const nodemailer = require('nodemailer');
 
 
@@ -24,13 +23,31 @@ module.exports = {
             throw err;
         }
     },
-    async emailCondition(desiredPrice, formatedPrice) {
+    async emailCondition(desiredPrice, formatedPrice, prodName, email, url) {
         try {
-            if (desiredPrice <= formatedPrice) {
-                console.log('formated price' + formatedPrice)
-                console.log('user desired price' + desiredPrice)
-                console.log('BUY LAH!')
-                // email trigger
+            var transporter = nodemailer.createTransport({
+                service: 'gmail',
+                auth: {
+                    user: 'singaporerewardstracker@gmail.com',
+                    pass: 'Hateherla1!'
+                }
+            });
+
+            if (formatedPrice <= desiredPrice) {
+                var mailOptions = {
+                    from: 'singaporerewardstracker@gmail.com',
+                    to: email,
+                    subject: 'BUY NOW from SG BUY LAH',
+                    text: `${prodName} is now at $${desiredPrice}, Product Link => ${url}`
+                };
+
+                transporter.sendMail(mailOptions, function (error, info) {
+                    if (error) {
+                        console.log(error);
+                    } else {
+                        console.log('Email sent: ' + info.response);
+                    }
+                });
             }
         } catch (err) {
             console.log(err)
