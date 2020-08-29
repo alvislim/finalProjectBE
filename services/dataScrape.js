@@ -11,7 +11,7 @@ module.exports = {
                 args: [
                   '--no-sandbox',
                   '--disable-setuid-sandbox',
-                ],
+                ]
               });
             const page = await browser.newPage()
             await page.goto(url, { waitUntil: 'load', timeout: 0 })
@@ -66,7 +66,7 @@ module.exports = {
                 args: [
                   '--no-sandbox',
                   '--disable-setuid-sandbox',
-                ],
+                ]
               });
             const page = await browser.newPage()
 
