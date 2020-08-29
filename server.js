@@ -14,7 +14,10 @@ app.use(
     session({
       secret: 'secret',
       resave: false,
-      saveUninitialized: true
+      saveUninitialized: true,
+      cookie : {
+        sameSite: 'lax'
+      }
     })
   );
 
