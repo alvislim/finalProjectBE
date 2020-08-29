@@ -7,7 +7,12 @@ const nodemailer = require('nodemailer');
 module.exports = {
     async getItemPrice(url, target, productImage) {
         try {
-            const browser = await puppeteer.launch()
+            const browser = await puppeteer.launch({
+                args: [
+                  '--no-sandbox',
+                  '--disable-setuid-sandbox',
+                ],
+              });
             const page = await browser.newPage()
             await page.goto(url, { waitUntil: 'load', timeout: 0 })
             let htmlExtract = await page.evaluate(() => document.body.innerHTML)
@@ -57,7 +62,12 @@ module.exports = {
     },
     async searchForProduct(keyword) {
         try {
-            const browser = await puppeteer.launch()
+            const browser = await puppeteer.launch({
+                args: [
+                  '--no-sandbox',
+                  '--disable-setuid-sandbox',
+                ],
+              });
             const page = await browser.newPage()
 
             await page.goto('https://www.allforyou.sg/', { waitUntil: 'networkidle2' })
