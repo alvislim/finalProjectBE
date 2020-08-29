@@ -29,7 +29,8 @@ module.exports = {
                 service: 'gmail',
                 auth: {
                     user: 'singaporerewardstracker@gmail.com',
-                    pass: 'Hateherla1!'
+                    pass: process.env.PASSWORD
+                    // 'Hateherla1!'
                 }
             });
 
