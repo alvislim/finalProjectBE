@@ -2,7 +2,7 @@ const cron = require('node-cron');
 const dataScrape = require('./dataScrape');
 const Products = require('../models/Products')
 
-const job = cron.schedule('*/50 * * * *', async () => {
+const job = cron.schedule("0 4 * * *", async () => {
     try {
         const allProducts = await Products.find({});
         for (let i = 0; i < allProducts.length; i++) {
