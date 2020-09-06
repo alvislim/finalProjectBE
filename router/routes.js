@@ -6,6 +6,7 @@ const userAuthentication = require('../controller/userAuthentication');
 const coldStorage = require('../controller/coldStorage');
 const productQuery = require('../controller/productQuery');
 
+router.get('/', userAuthentication.healthCheck);
 router.post('/register', userCreation.registerHandler);
 router.post('/login', loginAuthentication.loginAuthentication);
 router.get('/verifyuser', userAuthentication.verifyUser);

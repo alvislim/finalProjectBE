@@ -7,5 +7,8 @@ module.exports = {
     logout: (req, res) => {
         req.logout()
         httpResponse(res, 200, true, 'User successfully logout', null)
+    },
+    healthCheck: (req, res) => {
+        res.send('hi')
     }
 } 
