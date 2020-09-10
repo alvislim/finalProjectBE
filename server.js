@@ -10,7 +10,7 @@ const corsURLs = ['http://localhost:3000' , 'https://buynowor.herokuapp.com'];
 app.use(express.urlencoded({ extended: true}));
 app.use(express.json());
 
-app.set('trust proxy', 1);
+// app.set('trust proxy', 1);
 
 app.use(
     session({
@@ -38,9 +38,6 @@ app.use(router)
 
 const db = require('./db/db');
 db.connect(); 
-
-// const test = require('./services/dataScrape')
-// test.searchForProduct('chicken')
 
 const job = require('./services/cronJob')
 

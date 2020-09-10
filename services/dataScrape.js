@@ -35,8 +35,6 @@ module.exports = {
                 auth: {
                     user: 'singaporerewardstracker@gmail.com',
                     pass: 'Hateherla1!'
-                    // process.env.PASSWORD
-                    // 'Hateherla1!'
                 }
             });
 
