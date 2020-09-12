@@ -14,7 +14,7 @@ module.exports = {
                 ]
               });
             const page = await browser.newPage()
-            await page.goto(url, { waitUntil: 'load', timeout: 0 })
+            await page.goto(url, { waitUntil: 'networkidle0', timeout: 0 })
             let htmlExtract = await page.evaluate(() => document.body.innerHTML)
             let price = $(target, htmlExtract).eq(0).text()
             let img = $(productImage, htmlExtract).find('img').attr('src');
