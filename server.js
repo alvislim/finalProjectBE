@@ -5,7 +5,7 @@ const cors = require('cors')
 const passport = require('passport');
 
 const PORT = process.env.PORT || 4000;
-const corsURLs = ['http://localhost:3000' , 'https://buynowor.herokuapp.com'];
+const corsURLs = ['http://localhost:3000' , 'https://buynowor.herokuapp.com', 'https://buynowbe.herokuapp.com/coldstorage'];
 
 app.use(express.urlencoded({ extended: true}));
 app.use(express.json());
@@ -25,7 +25,7 @@ app.use(
   );
 
 app.use(cors({
-    origin: 'https://buynowor.herokuapp.com',
+    origin: corsURLs,
     credentials: true
 }));
 
