@@ -24,10 +24,12 @@ app.use(
     })
   );
 
-app.use(cors({
-    origin: corsURLs,
-    credentials: true
-}));
+// app.use(cors({
+//     origin: corsURLs,
+//     credentials: true
+// }));
+
+app.use(cors());
 
 app.use(passport.initialize());
 app.use(passport.session());
