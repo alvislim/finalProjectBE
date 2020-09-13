@@ -70,7 +70,7 @@ module.exports = {
             const page = await browser.newPage()
 
             await page.goto('https://www.allforyou.sg/', { waitUntil: 'networkidle2' })
-            await page.keyboard.press('Escape', {delay: 3000})
+            await page.keyboard.press('Escape', {delay: 1000})
             await page.type('input#small-searchterms', keyword, {delay: 250})
             await page.keyboard.press('Enter')
             await page.waitForNavigation({ waitUntil: 'networkidle2' })
