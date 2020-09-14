@@ -28,7 +28,7 @@ app.use(
   );
 
 app.use(cors({
-    origin: corsURLs,
+    origin: 'https://buynowor.herokuapp.com',
     credentials: true
 }));
 
