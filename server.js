@@ -1,52 +1,54 @@
-const express = require('express');
+const express = require("express");
 const app = express();
-const session = require('express-session');
-const cors = require('cors')
-const passport = require('passport');
+const session = require("express-session");
+const cors = require("cors");
+const passport = require("passport");
 
 const PORT = process.env.PORT || 4000;
-const corsURLs = ['http://localhost:3000' , 'https://buynowor.herokuapp.com', 
-'https://buynowbe.herokuapp.com/coldstorage', 'https://coldstorage.com.sg', 
-'https://www.allforyou.sg'
+const corsURLs = [
+  "http://localhost:3000",
+  "https://buynowor.herokuapp.com",
+  "https://buynowbe.herokuapp.com/coldstorage",
+  "https://coldstorage.com.sg",
+  "https://www.allforyou.sg",
 ];
 
-app.use(express.urlencoded({ extended: true}));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.set('trust proxy', 1);
+app.set("trust proxy", 1);
 
 app.use(
-    session({
-      secret: 'secret',
-      resave: false,
-      saveUninitialized: true,
-      cookie : {
-        sameSite: 'none',
-        secure: true
-      }
-    })
-  );
+  session({
+    secret: "secret",
+    resave: false,
+    saveUninitialized: true,
+    cookie: {
+      sameSite: "none",
+      secure: true,
+    },
+  })
+);
 
-app.use(cors({
-    origin: 'https://buynowor.herokuapp.com',
-    credentials: true
-}));
+app.use(
+  cors({
+    origin: "https://alvislim.github.io/",
+    credentials: true,
+  })
+);
 
 app.use(passport.initialize());
 app.use(passport.session());
-require('./services/passport')(passport)
+require("./services/passport")(passport);
 
-const router = require('./router/routes');
-app.use(router)
+const router = require("./router/routes");
+app.use(router);
 
-const db = require('./db/db');
-db.connect(); 
+const db = require("./db/db");
+db.connect();
 
-const job = require('./services/cronJob')
+const job = require("./services/cronJob");
 
 app.listen(PORT, () => {
-    console.log(`Server started on port ${PORT}`)
-})
-
-
-
+  console.log(`Server started on port ${PORT}`);
+});
