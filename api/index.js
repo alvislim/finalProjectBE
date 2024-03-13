@@ -30,12 +30,16 @@ app.use(
   })
 );
 
-app.use(
+const options = [
   cors({
-    origin: "https://alvislim.github.io",
+    origin: "*",
+    methods: "*",
+    allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,
-  })
-);
+  }),
+];
+
+app.use(options);
 
 app.use(passport.initialize());
 app.use(passport.session());
