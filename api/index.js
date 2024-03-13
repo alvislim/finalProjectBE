@@ -32,7 +32,7 @@ app.use(
 
 app.use(
   cors({
-    origin: "https://alvislim.github.io/",
+    origin: "https://alvislim.github.io",
     credentials: true,
   })
 );
