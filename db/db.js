@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const MONGO_SERVER =
   process.env.MONGO_SERVER ||
-  "mongodb+srv://learning:hateherla@cluster0-dlmch.mongodb.net/reactp1?retryWrites=true&w=majority";
+  "mongodb+srv://alvis:0FYQJWjEGzWXFJYp@cluster0.3agzaxx.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
 module.exports = {
   async connect() {
