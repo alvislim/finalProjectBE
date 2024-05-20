@@ -5,6 +5,13 @@ const cors = require("cors");
 const passport = require("passport");
 
 const PORT = process.env.PORT || 4000;
+const corsURLs = [
+  "http://localhost:3000",
+  "https://buynowor.herokuapp.com",
+  "https://buynowbe.herokuapp.com/coldstorage",
+  "https://coldstorage.com.sg",
+  "https://www.allforyou.sg",
+];
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -23,7 +30,16 @@ app.use(
   })
 );
 
-app.use(cors());
+const options = [
+  cors({
+    origin: "*",
+    methods: "*",
+    allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true,
+  }),
+];
+
+app.use(options);
 
 app.use(passport.initialize());
 app.use(passport.session());
