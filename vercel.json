@@ -3,12 +3,7 @@
   "builds": [
     {
       "src": "*.js",
-      "use": "@vercel/node",
-      "config": {
-        "functions": {
-          "controller/*.js": { "maxDuration": 30 }
-        }
-      }
+      "use": "@vercel/node"
     }
   ],
   "routes": [
@@ -22,5 +17,10 @@
         "Access-Control-Allow-Headers": "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version"
       }
     }
-  ]
+  ],
+  "functions": {
+    "pages/**/*": {
+      "maxDuration": 30
+    }
+  }
 }
