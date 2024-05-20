@@ -6,7 +6,7 @@
       "use": "@vercel/node",
       "config": {
         "functions": {
-          "controllers/*.js": { "maxDuration": 30 }
+          "controller/*.js": { "maxDuration": 30 }
         }
       }
     }
