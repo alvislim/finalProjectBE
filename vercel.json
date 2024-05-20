@@ -19,7 +19,7 @@
     }
   ],
   "functions": {
-    "pages/**/*": {
+    "pages/**/**": {
       "maxDuration": 30
     }
   }
