@@ -43,15 +43,15 @@ app.use(options);
 
 app.use(passport.initialize());
 app.use(passport.session());
-require("../services/passport")(passport);
+require("./services/passport")(passport);
 
-const router = require("../router/routes");
+const router = require("./router/routes");
 app.use(router);
 
-const db = require("../db/db");
+const db = require("./db/db");
 db.connect();
 
-const job = require("../services/cronJob");
+const job = require("./services/cronJob");
 
 app.listen(PORT, () => {
   console.log(`Server started on port no ${PORT}`);
