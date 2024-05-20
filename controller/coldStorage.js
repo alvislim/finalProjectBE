@@ -3,7 +3,6 @@ const httpResponse = require("../utilities/httpResponse");
 const dataScrape = require("../services/dataScrape");
 const { update } = require("../models/Products");
 
-//testubg
 module.exports = {
   productEntry: async (req, res) => {
     try {
